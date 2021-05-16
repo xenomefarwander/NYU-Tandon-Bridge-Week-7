@@ -18,6 +18,10 @@
  * 1 y
  */
 
+#include <iostream>
+#include <cctype>
+using namespace std;
+
 void getString(char userString[], int& arrSize);
 
 void parseText(char userString[], int arrSize, int letterCount[], int& wordCount);
@@ -27,10 +31,6 @@ void countLetters(char letter, int letterCount[]);
 bool isWord(char str[], int strLength);
 
 void initializeArrayToZero(int arr[], int arrSize);
-
-#include <iostream>
-#include <cctype>
-using namespace std;
 
 int main() {
     const int ALPHABET = 26;

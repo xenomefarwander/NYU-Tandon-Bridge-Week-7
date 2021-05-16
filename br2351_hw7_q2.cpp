@@ -5,6 +5,10 @@
  * Write a program that determines if two strings are anagrams. The program should not be case
  * sensitive and should disregard any punctuation or spaces. */
 
+#include <iostream>
+#include <cctype>
+using namespace std;
+
 void getString(char userString[], int& arrSize);
 
 void parseText(char userString[], int arrSize, int letterCount[], int& wordCount);
@@ -16,10 +20,6 @@ bool isWord(char str[], int strLength);
 bool isIdentical(const int arr1[], const int arr2[]);
 
 void initializeArrayToZero(int arr[], int arrSize);
-
-#include <iostream>
-#include <cctype>
-using namespace std;
 
 int main() {
     const int ALPHABET = 26;
