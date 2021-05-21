@@ -137,27 +137,31 @@ void main2(){
 }
 
 int* fillArray(int& outArrSize){
-    int arr[128];
     int index = 0;
     int inputInt = 0;
-    int arrSize = 128;
+    int arrCap = 1;
+    int *arr = new int[arrCap];
+    bool isNotFinished = true;
 
-    while (index < arrSize) {
+    while (isNotFinished) {
         cin >> inputInt;
         if (inputInt == -1)
-            break;
+            isNotFinished = false;
         else {
+            if (index == arrCap){
+                int *newArr = new int[arrCap * 2];
+                for (int i = 0; i < arrCap; i++)
+                    newArr[i] = arr[i];
+                delete [] arr;
+                arr = newArr;
+                arrCap *= 2;
+            }
             arr[index] = inputInt;
             index++;
         }
     }
-
     outArrSize = index;
-    int *outputArr = new int[outArrSize];
-    for (int i =0; i < outArrSize; i++)
-        outputArr[i] = arr[i];
-
-    return outputArr;
+    return arr;
 }
 
 int* findInt(const int arr[], int arrSize, int searchInt, int& numResults){
@@ -185,11 +189,12 @@ int* findInt(const int arr[], int arrSize, int searchInt, int& numResults){
 
 void fillVector(vector<int>& inputVect){
     int inputInt;
+    bool isNotFinished = true;
 
-    while (true) {
+    while (isNotFinished) {
         cin >> inputInt;
         if (inputInt == -1)
-            break;
+            isNotFinished = false;
         else {
             inputVect.push_back(inputInt);
         }
